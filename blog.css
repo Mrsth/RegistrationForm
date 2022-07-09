@@ -1,0 +1,133 @@
+/* libre-baskerville-regular - latin */
+@font-face {
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Libre Baskerville"), local("LibreBaskerville-Regular"), url(https://fonts.gstatic.com/s/librebaskerville/v5/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNXaxMICA.woff2) format("woff2");
+    unicode-range: U+0100-024f, U+0259, U+1-1eff, U+2020, U+20a0-20ab, U+20ad-20cf, U+2113, U+2c60-2c7f, U+A720-A7FF;
+}
+:root {
+    --font: "Libre Baskerville", serif;
+}
+/* reset */
+:root {
+    font: 20px/1.2 var(--font);
+}
+
+body,
+body * {
+    margin: unset;
+    box-sizing: unset;
+    padding: unset;
+    font-size: unset;
+    color: unset;
+    text-decoration: unset;
+}
+figure * {
+    display: block;
+}
+
+/* article */
+article {
+    display: grid;
+    grid-template-columns: 1fr 48px [start] 120px 480px 120px [end] 48px 1fr;
+    padding: 48px 0;
+    background: linear-gradient(hsl(55, 100%, 96%), white 6.55rem);
+}
+
+article * {
+    grid-column: start / end;
+}
+
+@media (max-width: 816px) {
+    article {
+        grid-template-columns: 1fr 5% [start] 15% 60% 15% [end] 5% 1fr;
+    }
+}
+
+/* article-figure */
+.size-1 {
+    grid-column: 4 / 5;
+}
+.size-2 {
+    grid-column: 3 / 6;
+}
+.size-3 {
+    grid-column: 2 / 7;
+}
+.size-4 {
+    grid-column: 1 / 8;
+}
+
+.size-1 img,
+.size-2 img,
+.size-3 img,
+.size-4 img {
+    width: 100%;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* article-text */
+h2,
+p {
+    margin-bottom: 2.4rem;
+}
+
+h1 {
+    font: 700 2rem/1.2 var(--font);
+    color: hsl(000, 000%, 33%);
+}
+h2 {
+    font: 400 1.5rem/1.2 var(--font);
+    color: hsl(000, 000%, 83%);
+}
+time {
+    font: 700 1rem/1.2 var(--font);
+    color: hsl(250, 100%, 83%);
+}
+h3 {
+    font: 700 1rem/1.2 var(--font);
+    color: hsl(250, 100%, 67%);
+}
+p {
+    font: 400 1rem/1.5 var(--font);
+    color: hsl(000, 000%, 33%);
+}
+figcaption p {
+    font: 400 1rem/1.5 var(--font);
+    color: hsl(000, 000%, 83%);
+}
+
+
+
+a {
+    box-shadow: inset 0 -0.25em hsl(55, 100%, 75%);
+}
+
+@media (max-width: 816px) {
+    :root {
+        font-size: 18px;
+    }
+}
+@media (max-width: 480px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+/* article-share */
+.share {
+    display: flex;
+    justify-content: center;
+}
+
+.share img {
+    padding: 0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
