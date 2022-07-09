@@ -9,11 +9,22 @@ $emailmsg = "";
 $passmsg = "";
 
 
+if ($_SESSION['flag'] == 1) {
+    header("Location: dash.php");
+}
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+function test_input($para1)
+{
+    $value = trim($para1);
+    $value = stripcslashes($value);
+    $value = htmlspecialchars($value);
+    return $value;
 }
 
 
@@ -40,23 +51,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row['email'] === $email && $row['the_password'] === $pass) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['pass'] = $row['the_password'];
-            header("Location: dash.php");
-            exit();
+            $_SESSION['flag'] = 1;
+
+            if ($_SESSION['flag'] == 1) {
+                header("Location: dash.php");
+                exit();
+            } else {
+                header("Location: index.php");
+                exit();
+            }
         } else {
             $msg = "Login Failed. No such user.";
         }
     }
 }
 
-
-
-function test_input($para1)
-{
-    $value = trim($para1);
-    $value = stripcslashes($value);
-    $value = htmlspecialchars($value);
-    return $value;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,11 +134,3 @@ function test_input($para1)
 </body>
 
 </html>
-
-<?php
-// remove all session variables
-session_unset();
-
-// destroy the session
-session_destroy();
-?>

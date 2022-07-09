@@ -1,4 +1,5 @@
 <?php
+session_start();
 $firstName = $lastName = $email = $pass = $confirmPass = "";
 $firstNamemsg = $lastNamemsg = $emailmsg = $passmsg = $confirmPassmsg = "";
 $message = "";
@@ -7,6 +8,11 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "blog";
+
+if ($_SESSION['flag'] == 1) {
+    header("Location: dash.php");
+}
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -67,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id = bin2hex(random_bytes(10));
             $sql = "INSERT INTO user_register (user_id, first_name, last_name, email, the_password) VALUES('$id', '$firstName', '$lastName', '$email', '$pass')";
             if ($conn->query($sql) === TRUE) {
-                $message =  "New record created successfully";
+                //$message =  "New record created successfully";
+                header("Location: index.php");
             }
         } catch (Exception $e) {
             $message =  "New record creation failed";
