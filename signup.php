@@ -57,12 +57,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
-
     //Insert Statement -> all field empty then nothing will be inserted
+    /*
+        $bytes = random_bytes(10);
+        echo bin2hex($bytes);
+    */
     if (($firstName and $lastName and $email and $pass and $confirmPass) != null) {
         try {
-            $sql = "INSERT INTO user_register (user_id, first_name, last_name, email, the_password) VALUES('400', '$firstName', '$lastName', '$email', '$pass')";
+            $id = bin2hex(random_bytes(10));
+            $sql = "INSERT INTO user_register (user_id, first_name, last_name, email, the_password) VALUES('$id', '$firstName', '$lastName', '$email', '$pass')";
             if ($conn->query($sql) === TRUE) {
                 $message =  "New record created successfully";
             }
