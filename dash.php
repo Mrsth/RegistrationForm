@@ -1,4 +1,4 @@
-
+<!-- 
 <?php
 session_start();
 if ($_SESSION['flag'] == 0) {
@@ -21,4 +21,4 @@ function button1()
 
 <form method="post">
     <input type="submit" name="button1" class="button" value="Logout" />
-</form>
+</form> -->

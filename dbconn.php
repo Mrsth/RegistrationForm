@@ -12,14 +12,16 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "INSERT INTO user_register 
-(user_id, first_name, last_name, email, the_password, registered, created, updated, the_role) 
-VALUES 
-('100', 'Manish', 'Shrestha', 'abc@abc.com', 'test', '0', current_timestamp(), current_timestamp(), 'admin')
-";
+$sql = "CREATE table contact
+(
+    cid      varchar(20) unique not null,
+    fullname text,
+    email  text,
+    msg text
+);";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "New table created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

@@ -9,9 +9,11 @@ $emailmsg = "";
 $passmsg = "";
 
 
-if ($_SESSION['flag'] == 1) {
-    header("Location: dash.php");
+if (isset($_SESSION['flag']) <> null) {
+    header("Location: blog.php");
 }
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -54,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['flag'] = 1;
 
             if ($_SESSION['flag'] == 1) {
-                header("Location: dash.php");
+                header("Location: blog.php");
                 exit();
             } else {
                 header("Location: index.php");
