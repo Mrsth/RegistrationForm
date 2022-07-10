@@ -10,8 +10,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select * from blog_detail where blog_id = '123'";
-$sql1 = "select * from blog where id = '123'";
+$sql = "select * from blog_detail where blog_id in ('10', '20')";
+$sql1 = "select * from blog";
 $blog = $conn->query($sql1)->fetch_assoc();
 $result = $conn->query($sql);
 $bolg_details = $result->fetch_all(MYSQLI_ASSOC);

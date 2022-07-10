@@ -1,3 +1,30 @@
+/*Blog Navbar CSS*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+    cursor: pointer;
+  }
+
 /* libre-baskerville-regular - latin */
 @font-face {
     font-family: "Libre Baskerville";
@@ -53,7 +80,7 @@ article * {
     grid-column: 3 / 6;
 }
 .size-3 {
-    grid-column: 2 / 7;
+    grid-column: 4 / 5;
 }
 .size-4 {
     grid-column: 1 / 8;
@@ -63,7 +90,7 @@ article * {
 .size-2 img,
 .size-3 img,
 .size-4 img {
-    width: 100%;
+    width: 90%;
 }
 
 figcaption {
