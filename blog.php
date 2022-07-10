@@ -22,9 +22,21 @@ $bolg_details = $result->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="blog.css">
 </head>
 <body>
+<div class="navbar">
+    <ul class="ul">
+        <div>
+            <li class="li" style="margin-right:10px"><a class="a" href="blog.php">Home</a></li>
+            <li class="li" style="margin-right:10px"><a class="a" href="contact.php">Contact</a></li>
+        </div>
+
+
+        <li class="li"><a class="a" type="submit" name="submit" href="logout.php">Logout</a></li>
+    </ul>
+
+</div>
 <article id="the-whale">
     <h1>
-        <a href="#"><?php if($blog["tittle"])
+        <a href="#"><?php if($blog["tittle"] != null)
             echo $blog["tittle"] ?></a>
     </h1>
     <h2><?php if ($blog["author"] != null)
