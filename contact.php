@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,6 +14,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+if (isset($_SESSION['flag']) == null) {
+    header("Location: index.php");
+}
+
 
 $fname = $email = $msg = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -60,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        <div class="signin-form">
+        <div class="contact-form" style="margin-left: 25%; margin-top:  5%; width:50%">
             <h2 style="color:black">Contact Us</h2>
             <span class="success" style="color:green ;text-align:center;"><?php echo $note; ?></span>
             <form method="POST" class="contact-form" id="contact-form">
