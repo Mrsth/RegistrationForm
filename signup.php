@@ -9,8 +9,8 @@ $username = "root";
 $password = "";
 $dbname = "blog";
 
-if ($_SESSION['flag'] == 1) {
-    header("Location: dash.php");
+if (isset($_SESSION['flag']) <> null) {
+    header("Location: blog.php");
 }
 
 

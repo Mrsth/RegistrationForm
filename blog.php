@@ -51,13 +51,14 @@ $all_cmts = $result1->fetch_all(MYSQLI_ASSOC);
                 <li class="li" style="margin-right:10px"><a class="a" href="contact.php">Contact</a></li>
             </div>
 
-
             <li class="li"><a class="a" type="submit" name="submit" href="logout.php">Logout</a></li>
         </ul>
 
     </div>
     <article id="the-whale">
-        <h1>
+        <h1><?php echo "Welcome to the blog " . substr($_SESSION["email"], 0, strpos($_SESSION["email"], "@")) . "!!!" ?></h1>
+        <hr>
+        <h1 style="margin-top:4%">
             <a href="#"><?php if ($blog["tittle"] != null)
                             echo $blog["tittle"] ?></a>
         </h1>
